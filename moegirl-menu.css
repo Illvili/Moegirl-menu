@@ -8,26 +8,32 @@
 	margin-top: -200px;
 	
 	background: #fff;
-	overflow-y: hidden;
+	overflow: hidden;
 	border-radius: 10px;
 	
-	z-index: -1;
+	z-index: 11;
 	opacity: 0;
+	-webkit-transform: scale(0);
+	transform: scale(0);
 	
-	-webkit-transition: opacity .5s, z-index 0 .5s;
-	transition: opacity .5s, z-index 0 .5s;
+	-webkit-transition: opacity .5s, -webkit-transform 0 .5s;
+	transition: opacity .5s, transform 0 .5s;
 	
 	-webkit-box-shadow: 0 0 10px #999;
 	box-shadow: 0 0 10px #999;
 	
 	counter-reset: moegirl-menu-h2 moegirl-menu-h3 moegirl-menu-h4 moegirl-menu-h5;
+	
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body.moegirl-menu-show #moegirl-menu {
-	z-index: 11;
 	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
 	
-	-webkit-transition: opacity 1s, z-index 0;
-	transition: opacity 1s, z-index 0;
+	-webkit-transition: opacity 1s, -webkit-transform 0;
+	transition: opacity 1s, transform 0;
 }
 
 #moegirl-menu-title {
@@ -54,9 +60,10 @@ body.moegirl-menu-show #moegirl-menu {
 	height: 360px;
 	border-top: 1px solid #d6d5d7;
 	margin: 0;
-	padding: 0;
+	padding: 1px 0;
 	
 	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 #moegirl-menu-list > li {
@@ -97,8 +104,11 @@ body.moegirl-menu-show #moegirl-menu {
 .moegirl-menu-h4:before { content: counter(moegirl-menu-h2) '.' counter(moegirl-menu-h3) '.' counter(moegirl-menu-h4); }
 .moegirl-menu-h5:before { content: counter(moegirl-menu-h2) '.' counter(moegirl-menu-h3) '.' counter(moegirl-menu-h4) '.' counter(moegirl-menu-h5); }
 
+body.moegirl-menu-show {
+	overflow: hidden;
+}
 body.moegirl-menu-show .mw-body {
-	-webkit-filter: blur(5px);
+	/*-webkit-filter: blur(5px);*/
 }
 
 #moegirl-menu-mask {
@@ -107,28 +117,31 @@ body.moegirl-menu-show .mw-body {
 	right: 0;
 	top: 0;
 	bottom: 0;
-	background: rgba(255, 255, 255, .2);
+	background: rgba(255, 255, 255, .8);
 	
-	z-index: -1;
+	z-index: 9;
 	opacity: 0;
+	-webkit-transform: scale(0);
+	transform: scale(0);
 	
-	-webkit-transition: opacity .5s, z-index 0 .5s;
-	transition: opacity .5s, z-index 0 .5s;
+	-webkit-transition: opacity .5s, -webkit-transform 0 .5s;
+	transition: opacity .5s, transform 0 .5s;
 }
 body.moegirl-menu-show #moegirl-menu-mask {
-	z-index: 9;
 	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
 	
-	-webkit-transition: opacity 1s, z-index 0;
-	transition: opacity 1s, z-index 0;
+	-webkit-transition: opacity 1s, -webkit-transform 0;
+	transition: opacity 1s, transform 0;
 }
 
 #moegirl-menu-mind-attack {
 	position: fixed;
 	right: 0;
 	bottom: 0;
-	width: 75px;
-	height: 75px;
+	width: 60px;
+	height: 60px;
 	z-index: 10;
 	
 	-webkit-transition: -webkit-transform 1s;
@@ -141,6 +154,6 @@ body.moegirl-menu-show #moegirl-menu-mask {
 #moegirl-menu-mind-attack.pause {
 	-webkit-transform: translate(100%, 100%);
 	transform: translate(100%, 100%);
-	-webkit-transition: -webkit-transform 1s 1s;
-	transition: transform 1s 1s;
+	-webkit-transition: -webkit-transform 0 0;
+	transition: transform 0 0;
 }
