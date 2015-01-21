@@ -97,6 +97,9 @@ body.moegirl-menu-show #moegirl-menu {
 .moegirl-menu-h4:before { content: counter(moegirl-menu-h2) '.' counter(moegirl-menu-h3) '.' counter(moegirl-menu-h4); }
 .moegirl-menu-h5:before { content: counter(moegirl-menu-h2) '.' counter(moegirl-menu-h3) '.' counter(moegirl-menu-h4) '.' counter(moegirl-menu-h5); }
 
+body.moegirl-menu-show {
+	overflow: hidden;
+}
 body.moegirl-menu-show .mw-body {
 	/*-webkit-filter: blur(5px);*/
 }
